@@ -1,5 +1,6 @@
 <template>
   <div class="container" style="padding:15px 100px">
+    <h4 class="list-title">万能解析器</h4>
     <!-- 16:9 aspect ratio -->
     <div class="embed-responsive embed-responsive-16by9" style="background-color:#000;border-color:#a96315">
       <iframe class="embed-responsive-item" scrolling="no" :src="curritfurl+videoUrl"></iframe>
@@ -38,3 +39,9 @@ export default {
 }
 
 </script>
+<style scoped>
+.list-title {
+  color: #d39e00;
+}
+
+</style>
