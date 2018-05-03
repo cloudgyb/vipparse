@@ -21,18 +21,13 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" :href="vip.url" v-for="vip in vipLinkList">{{vip.name}}</a>
-             <!--  <div class="dropdown-divider"></div>
-             <a class="dropdown-item" href="#">Something else here</a> -->
             </div>
           </li>
-          <!--  <li class="nav-item">
-           <a class="nav-link disabled" href="#">Disabled</a>
-         </li> -->
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input style="border-color:#a96315" class="form-control mr-sm-2" type="search" placeholder="更多电影" aria-label="Search">
-          <button style="border-color:#a96315;color:#d39e00" class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
-        </form>
+        <div class="form-inline">
+          <input style="border-color:#a96315" class="form-control mr-sm-2" type="search" placeholder="更多电影" aria-label="Search" v-model="keyword">
+          <button style="border-color:#a96315;color:#d39e00" class="btn btn-outline-success my-2 my-sm-0" @click="so">搜索</button>
+        </div>
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,6 +56,7 @@ export default {
   name: 'VideoHeader',
   data() {
     return {
+      keyword:'',
       vipLinkList: [{
         url: 'http://vip.youku.com/',
         name: '优酷VIP'
@@ -92,6 +88,14 @@ export default {
         url: 'https://www.bilibili.com/index.html',
         name: '哔哩哔哩'
       }]
+    }
+  },
+  methods:{
+    so(){
+      if(this.keyword==='')
+        return ;
+      this.$router.push({path:'/video/so/'+this.keyword});
+      window.location.reload();
     }
   }
 }

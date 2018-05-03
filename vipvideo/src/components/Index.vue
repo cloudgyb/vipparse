@@ -17,15 +17,16 @@
           </router-link>
         </div>
       </div>
-      <nav aria-label="Page navigation example" class="page" v-show="pageShow">
+      <!-- <nav aria-label="Page navigation example" class="page" v-show="pageShow">
         <ul class="pagination justify-content-center">
           <li class="page-item" :class="[pageInfo.currPageNum==1?'disabled':'']"><a class="page-link" href="javascript:;" @click="prevPage">上一页</a></li>
-          <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
           <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
           <li class="page-item" :class="[pageInfo.currPageNum==pageInfo.totalPage?'disabled':'']"><a class="page-link" href="javascript:;" @click="nextPage">下一页</a></li>
         </ul>
-      </nav>
+      </nav> -->
+      <v-page :setting="pageSet" @page-change="pageChange" v-show="pageShow"></v-page>
     </div>
   </div>
 </template>
@@ -37,7 +38,12 @@ export default {
     return {
       vlist: [],
       pageInfo: {},
-      pageShow: false
+      pageShow: false,
+      pageSet: {
+        totalRow: 0,//required option
+        language: 'cn',//default: 'cn'
+        pageSizeMenu: [14,15,20]//default: [10, 20, 50, 100]
+      }
     }
   },
   created() {
@@ -51,9 +57,17 @@ export default {
         _self.pageInfo = data;
         console.log(data);
         _self.pageShow = true;
+        _self.pageSet.totalRow = data.total;
       });
     },
-    nextPage: function() {
+    pageChange(pInfo){
+      if(pInfo.pageNumber===1)
+        this.getVipData(14, pInfo.pageNumber);
+      else 
+        this.getVipData(pInfo.pageSize, pInfo.pageNumber);
+      //console.log(pInfo);//{pageNumber: 1, pageSize: 10}
+    }
+    /*nextPage: function() {
       var currPage = this.pageInfo.currPageNum;
       var totalPage = this.pageInfo.totalPage;
       this.getVipData(15, currPage + 1);
@@ -65,19 +79,7 @@ export default {
       if (currPage == 2)
         pageSize = 14;
       this.getVipData(pageSize, currPage - 1);
-    },
-    reloadImg: function(imgObj, imgSrc, maxErrorNum) {
-     /* console.log(imgObj);
-      console.log(imgSrc);*/
-      if(maxErrorNum>0){
-        imgObj.src = imgSrc;
-        imgObj.onerror = function () {
-          this.reloadImg(imgObj, imgSrc, maxErrorNum-1);
-        }
-      }else {
-        imgObj.removeAttribute("src");
-      }
-    }
+    }*/
   },
   components: {
 
