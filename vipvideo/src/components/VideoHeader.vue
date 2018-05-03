@@ -23,6 +23,9 @@
               <a class="dropdown-item" :href="vip.url" v-for="vip in vipLinkList">{{vip.name}}</a>
             </div>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="'/video/commonplay'" target="_blank">万能解析器</router-link>
+          </li>
         </ul>
         <div class="form-inline">
           <input style="border-color:#a96315" class="form-control mr-sm-2" type="search" placeholder="更多电影" aria-label="Search" v-model="keyword">
