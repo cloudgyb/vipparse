@@ -20,8 +20,8 @@ npm run build --report
 
 ## 截图
 ### 首页
-![首页](https://github.com/cloudgyb/vipparse/screenshots/index.png)
+![首页](https://github.com/cloudgyb/vipparse/blob/master/screenshots/index.png)
 ### 播放页面
-![播放页面](https://github.com/cloudgyb/vipparse/vipparse/screenshots/play.png)
+![播放页面](https://github.com/cloudgyb/vipparse/screenshots/play.png)
 
 
