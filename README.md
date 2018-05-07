@@ -1,6 +1,6 @@
 # VIP视频播放解析
 
-> iqiyi 目录为后台工程（Sping boot）<br>
+> iqiyi 目录为后台工程（Spring Boot）<br>
 > vipvideo 目录为前端工程（VueJs+Bootstrap4.0）<br>
 > screenshots 目录为项目运行截图 
 
