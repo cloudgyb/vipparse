@@ -1,0 +1,19 @@
+http://suggest.video.iqiyi.com/?key=%E9%97%BA%E8%9C%9C&platform=11&rltnum=10&uid=45ddf2b8e412b9b67798f7050ee8b8fc&ppuid=1518670985
+
+主要参数：
+key --搜索关键字
+示例：http://suggest.video.iqiyi.com/?key=唐人街探案
+
+
+
+http://pcw-api.iqiyi.com/video/video/videoinfowithuser/[vid]  --获取视频详细信息
+vid  视频ID
+
+示例：
+
+http://pcw-api.iqiyi.com/video/video/videoinfowithuser/733555300?detail=1&score=1&source=210400&subscribe=1&authcookie=77qnMeJm3xpux74cnKm3ch1ehhU8TjN66ieaDSCgAuS6flwqm183SfWyRRnSUx8rAm3m3vI62&agent_type=1&updown=1&type=2&appid=21&uid=1518670985&flashuid=45ddf2b8e412b9b67798f7050ee8b8fc&preview=1
+
+
+
+
+
